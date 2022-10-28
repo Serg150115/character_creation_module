@@ -1,14 +1,14 @@
 from asciimatics.renderers import FigletText, Fire
-from asciimatics.renderers import  SpeechBubble
+from asciimatics.renderers import SpeechBubble
 from asciimatics.scene import Scene
-from asciimatics.screen  
+from asciimatics.screen import Screen
 from asciimatics.effects import Print
-from asciimatics.exceptions import  ResizeScreenError
+from asciimatics.exceptions import ResizeScreenError
 from pyfiglet import Figlet
 import sys
 
 
-def animation():
+def animation(screen):
     scenes = []
 
     text = Figlet(font="banner", width=200).renderText("START GAME")
@@ -32,7 +32,7 @@ def animation():
               speed=1, transparent=False)
 
     ]
-    scenes.append(Scene(effects, -))
+    scenes.append(Scene(effects, -1))
 
     screen.play(scenes, stop_on_resize=True)
 
